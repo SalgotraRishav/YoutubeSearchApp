@@ -27,14 +27,6 @@ public class YouTubeController {
         return "Application working fine.";
     }
 
-    /**
-     * Handles GET requests to /api/Youtube.
-     * This endpoint searches YouTube videos based on a provided query parameter
-     * and returns simplified video summaries.
-     *
-     * @param q The search term passed as a request parameter (e.g., /search?q=Angular%20tutorial).
-     * @return A ResponseEntity containing a List of VideoSummaryDto, wrapped in a Mono.
-     */
     @GetMapping("/search")
     public Mono<ResponseEntity<List<VideoSummaryDto>>> search(@RequestParam String q) {
         return youtubeService.searchVideos(q)
